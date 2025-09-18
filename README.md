@@ -58,7 +58,7 @@ Công nghệ sử dụng:
     <p align="center">
         <img src="docs/seve1.jpg" alt="" width="170"/>
         
-    </p>
+</p>
 </div>
 
 
@@ -67,7 +67,7 @@ Công nghệ sử dụng:
     <p align="center">
         <img src="docs/server1.jpg" alt="" width="170"/>
         
-    </p>
+</p>
 </div>
 
 
