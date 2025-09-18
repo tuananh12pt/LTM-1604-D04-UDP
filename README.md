@@ -56,7 +56,7 @@ Công nghệ sử dụng:
 ### Client (gửi file) 📤
 <div align="center">
     <p align="center">
-        <img src="docs/seve1.jpg" alt="" width="250"/>
+        <img src="docs/seve1.jpg" alt="" width="500"/>
 <p>Giao diện của Client chưa nhận file<p>  
 </p>
 </div>
@@ -65,7 +65,7 @@ Công nghệ sử dụng:
 ### Server (nhận file) 📥
 <div align="center">
     <p align="center">
-        <img src="docs/server1.jpg" alt="" width="250"/>
+        <img src="docs/server1.jpg" alt="" width="500"/>
         
 </p>
 <p>Giao diện của server chưa nhận file  <p>
@@ -75,12 +75,12 @@ Công nghệ sử dụng:
  ### Ảnh kết quả khi chương trình nhận thành công 📥
  <div align="center">
     <p align="center">
-        <img src="docs/anh12.png" alt="" width="250"/>
+        <img src="docs/anh12.png" alt="" width="500"/>
         
 </p>
 <p> Ảnh kết quả gửi file và lịch sử file đã được gửi <p>
 </div>
----
+
 
 ## 5. Cách chạy chương trình
 
