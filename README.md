@@ -56,7 +56,7 @@ Công nghệ sử dụng:
 ### Client (gửi file) 📤
 <div align="center">
     <p align="center">
-        <img src="docs/seve1.jpg" alt="AIoTLab Logo" width="170"/>
+        <img src="docs/seve1.jpg" alt="" width="170"/>
         
     </p>
 <div>
@@ -65,7 +65,7 @@ Công nghệ sử dụng:
 ### Server (nhận file) 📥
 <div align="center">
     <p align="center">
-        <img src="docs/sever1.jpg" alt="AIoTLab Logo" width="170"/>
+        <img src="docs/sever1.jpg" alt="" width="170"/>
         
     </p>
 <div>
