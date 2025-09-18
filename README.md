@@ -58,6 +58,24 @@ UDP thường được sử dụng trong các ứng dụng cần tốc độ hơ
 - **Header Sequence Number:** số thứ tự gói tin để ghép file đúng.  
 
 ---
+## 3. Mô hình hoạt động
+1. **Client**: Đọc file → chia nhỏ thành gói tin → gửi qua UDP.  
+2. **Server**: Nhận gói tin → ghép lại thành file gốc.  
+
+---
+
+## 4. Cài đặt & chạy
+
+### 🔧 Yêu cầu môi trường
+- Cài **Java JDK 8+**  
+- IDE: IntelliJ IDEA / Eclipse (khuyến nghị)  
+- Github để quản lý mã nguồn  
+
+### ▶️ Biên dịch
+```bash
+cd src
+javac UDPServer.java
+javac UDPClient.java
 
 📌 *Nguồn:DaiNam University. Nguyễn Tuấn Anh Gmail: tuananh12cpt@gmail.com
 
