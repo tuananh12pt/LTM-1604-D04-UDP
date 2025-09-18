@@ -65,7 +65,7 @@ Công nghệ sử dụng:
 ### Server (nhận file) 📥
 <div align="center">
     <p align="center">
-        <img src="docs/sever1.jpg" alt="" width="170"/>
+        <img src="docs/server1.jpg" alt="" width="170"/>
         
     </p>
 </div>
