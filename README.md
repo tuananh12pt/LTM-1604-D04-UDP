@@ -59,7 +59,7 @@ Công nghệ sử dụng:
         <img src="docs/seve1.jpg" alt="" width="170"/>
         
     </p>
-<div>
+</div>
 
 
 ### Server (nhận file) 📥
@@ -68,7 +68,7 @@ Công nghệ sử dụng:
         <img src="docs/sever1.jpg" alt="" width="170"/>
         
     </p>
-<div>
+</div>
 
 
 ---
