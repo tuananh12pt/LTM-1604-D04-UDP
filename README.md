@@ -18,7 +18,9 @@
 [![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
 
 </div>
-# 📖 1. Giới thiệu
+---
+
+#  📖  1. Giới thiệu
 Đề tài minh hoạ cách xây dựng một ứng dụng **truyền file qua giao thức UDP** dựa trên mô hình **Client/Server**.  
 Ứng dụng cho phép:
 
@@ -71,6 +73,7 @@ Công nghệ sử dụng:
 - Mở `UDPFileClientGUI.java`  
 
 - Chọn file cần gửi và nhấn **Gửi**
+- Nhập Port (mặc định: 0000)
 
 ---
 
