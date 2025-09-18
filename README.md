@@ -1,5 +1,10 @@
 <h2 align="center">
-   TRUYỀN FILE QUA UDP 
+    <a href="https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin">
+    🎓 Faculty of Information Technology (DaiNam University)
+    </a>
+</h2>
+<h2 align="center">
+    TRUYỀN FILE QUA UDP 
 </h2>
 <div align="center">
     <p align="center">
@@ -54,4 +59,6 @@ UDP thường được sử dụng trong các ứng dụng cần tốc độ hơ
 
 ---
 
-📌 *Nguồn:
+📌 *Nguồn:DaiNam University. Nguyễn Tuấn Anh Gmail: tuananh12cpt@gmail.com
+
+
