@@ -94,7 +94,7 @@ Công nghệ sử dụng:
 - Mở `UDPFileClientGUI.java`  
 
 - Chọn file cần gửi và nhấn **Gửi**
-- Nhập Port (mặc định: 0000)
+- Nhập Port (mặc định: 8888)
 
 ---
 
