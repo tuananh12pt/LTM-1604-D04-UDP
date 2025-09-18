@@ -18,65 +18,64 @@
 [![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
 
 </div>
-# 1. Giới thiệu
+# 📖 1. Giới thiệu
+Đề tài minh hoạ cách xây dựng một ứng dụng **truyền file qua giao thức UDP** dựa trên mô hình **Client/Server**.  
+Ứng dụng cho phép:
 
-Trong lĩnh vực mạng máy tính, **UDP (User Datagram Protocol)** là một trong những giao thức quan trọng thuộc tầng Transport trong mô hình TCP/IP.  
-UDP được sử dụng để truyền dữ liệu giữa các thiết bị trong mạng một cách **nhanh chóng, gọn nhẹ** mà không cần nhiều cơ chế kiểm soát phức tạp.
-
-## 🔹 Đặc điểm chính của UDP
-- **Không kết nối (Connectionless):** UDP không cần thiết lập kết nối giữa client và server như TCP → truyền tải nhanh hơn.
-- **Không đảm bảo (Unreliable):** không đảm bảo dữ liệu đến nơi, không có kiểm tra toàn vẹn dữ liệu hay xác nhận gói tin.
-- **Đơn giản và hiệu quả:** UDP có header chỉ 8 byte (nhỏ hơn TCP 20 byte) → tiết kiệm băng thông.
-- **Hỗ trợ broadcast/multicast:** gửi dữ liệu tới nhiều thiết bị cùng lúc.
-
-## 🔹 Cấu trúc gói tin UDP
-Một gói tin UDP bao gồm 4 phần chính:
-1. **Source Port (16 bit):** Cổng nguồn.  
-2. **Destination Port (16 bit):** Cổng đích.  
-3. **Length (16 bit):** Độ dài toàn bộ gói UDP.  
-4. **Checksum (16 bit):** Kiểm tra lỗi cơ bản.  
-
-## 🔹 Ứng dụng của UDP
-UDP thường được sử dụng trong các ứng dụng cần tốc độ hơn độ tin cậy tuyệt đối:
-- Truyền phát video/audio trực tuyến (YouTube, Zoom, VoIP).  
-- Game online (yêu cầu phản hồi nhanh, chấp nhận mất gói).  
-- DNS (Domain Name System).  
-- Streaming đa phương tiện, IPTV.  
+- Client chia nhỏ file thành nhiều gói tin và gửi tới Server.  
+- Server nhận, ghép lại các gói tin và lưu thành file hoàn chỉnh.  
+- Minh họa lập trình mạng với **UDP socket** trong Java.  
 
 ---
 
-# 2. Ngôn ngữ lập trình sử dụng
-- **Java**
+# 🔧 2. Ngôn ngữ lập trình sử dụng
+**Java**
+
+Công nghệ sử dụng:
+- **Java Swing** (tạo giao diện)  
+- **UDP DatagramSocket** (truyền dữ liệu)  
 
 ---
 
-# 3. Công nghệ sử dụng
-- **Java**: ngôn ngữ lập trình chính.  
-- **UDP (User Datagram Protocol):** giao thức truyền nhanh, không kết nối.  
-- **Socket lập trình mạng:** `DatagramSocket`, `DatagramPacket`.  
-- **Java IO:** đọc file (`FileInputStream`), ghi file (`FileOutputStream`).  
-- **Header Sequence Number:** số thứ tự gói tin để ghép file đúng.  
+# 🚀 3. Các chức năng chính
+- Client chọn nhiều file và gửi tới Server qua UDP socket.  
+- File được chia nhỏ thành nhiều gói tin và truyền đi.  
+- Server nhận, ghép lại và lưu file vào thư mục chỉ định.  
+- Hiển thị tiến trình gửi/nhận file qua **JProgressBar**.  
+- Giao diện trực quan bằng **Java Swing**.  
+
+### 👉 Có thể mở rộng:
+- Cơ chế kiểm tra mất gói và gửi lại.  
+- Truyền nhiều file liên tiếp.  
+- Mã hoá dữ liệu trước khi gửi.  
+
+## 4. DEMO giao diện
+---
+
+## 5. Cách chạy chương trình
+
+### 1️⃣ Chạy Server
+- Mở `UDPFileServerGUI.java`  
+  
+- Bấm **Chọn thư mục lưu** để chỉ định nơi nhận file (Nếu không chọn nơi lưu trữ, thư mục sẽ được lưu tại thư mục gốc *Nơi lưu trữ Ứng dụng*)  
+- Nhấn ****
+
+### 2️⃣ Chạy Client
+- Mở `UDPFileClientGUI.java`  
+
+- Chọn file cần gửi và nhấn **Gửi**
 
 ---
-## 3. Mô hình hoạt động
-1. **Client**: Đọc file → chia nhỏ thành gói tin → gửi qua UDP.  
-2. **Server**: Nhận gói tin → ghép lại thành file gốc.  
+
+## 📌 Ghi chú
+- Server phải được khởi động **trước** khi Client gửi file.  
+- Nếu chưa chọn thư mục lưu, file sẽ được lưu ngay tại thư mục chạy chương trình.  
+- UDP không đảm bảo toàn vẹn gói tin → chỉ phù hợp để demo, với file nhỏ/medium.  
 
 ---
 
-## 4. Cài đặt & chạy
-
-### 🔧 Yêu cầu môi trường
-- Cài **Java JDK 8+**  
-- IDE: IntelliJ IDEA / Eclipse (khuyến nghị)  
-- Github để quản lý mã nguồn  
-
-### ▶️ Biên dịch
-```bash
-cd src
-javac UDPServer.java
-javac UDPClient.java
-
-📌 *Nguồn:DaiNam University. Nguyễn Tuấn Anh Gmail: tuananh12cpt@gmail.com
+## 👤 Thông tin cá nhân
+- **Nguyễn Tuấn Anh – CNTT 16-04  
+- 📧 Email: tuananh12cpt@gmail.com  
 
 
