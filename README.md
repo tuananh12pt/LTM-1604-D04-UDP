@@ -57,7 +57,7 @@ Công nghệ sử dụng:
 <div align="center">
     <p align="center">
         <img src="docs/seve1.jpg" alt="" width="250"/>
-        
+<p>Giao diện của Client chưa nhận file<p>  
 </p>
 </div>
 
@@ -68,6 +68,7 @@ Công nghệ sử dụng:
         <img src="docs/server1.jpg" alt="" width="250"/>
         
 </p>
+<p>Giao diện của server chưa nhận file  <p>
 </div>
 
 
