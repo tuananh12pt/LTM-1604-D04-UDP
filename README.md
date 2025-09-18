@@ -74,13 +74,13 @@ Công nghệ sử dụng:
 ## 4. Cách chạy chương trình
 
 ### 1️⃣ Chạy Server
-- Mở `UDPFileServerGUI.java`  
+- Mở `UDPServer.java`  
   
 - Bấm **Chọn thư mục lưu** để chỉ định nơi nhận file (Nếu không chọn nơi lưu trữ, thư mục sẽ được lưu tại thư mục gốc *Nơi lưu trữ Ứng dụng*)  
-- Nhấn ****
+- Nhấn bắt đầu
 
 ### 2️⃣ Chạy Client
-- Mở `UDPFileClientGUI.java`  
+- Mở `UDPClient.java`  
 
 - Chọn file cần gửi và nhấn **Gửi**
 - Nhập Port (mặc định: 8888)
