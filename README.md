@@ -54,10 +54,22 @@ Công nghệ sử dụng:
 ## 🖼️ 4. Giao diện minh họa
 
 ### Client (gửi file) 📤
-![Client](https://raw.githubusercontent.com/<tên_tài_khoản>/<tên_repo>/main/docs/client.png)
+<div align="center">
+    <p align="center">
+        <img src="docs/seve1.jpg" alt="AIoTLab Logo" width="170"/>
+        
+    </p>
+<div>
+
 
 ### Server (nhận file) 📥
-![Server](https://raw.githubusercontent.com/<tên_tài_khoản>/<tên_repo>/main/docs/server.png)
+<div align="center">
+    <p align="center">
+        <img src="docs/sever1.jpg" alt="AIoTLab Logo" width="170"/>
+        
+    </p>
+<div>
+
 
 ---
 
