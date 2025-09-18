@@ -72,6 +72,14 @@ Công nghệ sử dụng:
 </div>
 
 
+ ### Ảnh kết quả khi chương trình nhận thành công 📥
+ <div align="center">
+    <p align="center">
+        <img src="docs/anh12.png" alt="" width="250"/>
+        
+</p>
+<p> Ảnh kết quả gửi file và lịch sử file đã được gửi <p>
+</div>
 ---
 
 ## 5. Cách chạy chương trình
