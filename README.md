@@ -49,7 +49,14 @@ Công nghệ sử dụng:
 - Truyền nhiều file liên tiếp.  
 - Mã hoá dữ liệu trước khi gửi.  
 
-## 4. DEMO giao diện
+## 🖼️ 4. Giao diện minh họa
+
+### Client (gửi file) 📤
+![Client](https://raw.githubusercontent.com/<tên_tài_khoản>/<tên_repo>/main/docs/client.png)
+
+### Server (nhận file) 📥
+![Server](https://raw.githubusercontent.com/<tên_tài_khoản>/<tên_repo>/main/docs/server.png)
+
 ---
 
 ## 5. Cách chạy chương trình
