@@ -95,7 +95,10 @@ Công nghệ sử dụng:
 ---
 
 ## 5. 👤 Thông tin cá nhân
-- **Nguyễn Tuấn Anh – CNTT 16-04  
-- 📧 Email: tuananh12cpt@gmail.com  
+- **Nguyễn Tuấn Anh 
+- Trường Đại học Đại Nam – CNTT 16-04
+- 📧 Email: tuananh12cpt@gmail.com
+- 📞 0383150556.
+
 
 
