@@ -1,5 +1,4 @@
-<img width="120" height="120" alt="image" src="https://github.com/user-attachments/assets/a9029a6b-fc5c-4e9c-a51d-7adccee01f55" />
-
+<h2 align="center">
     <a href="https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin">
     🎓 Faculty of Information Technology (DaiNam University)
     </a>
@@ -111,6 +110,7 @@ Công nghệ sử dụng:
 ## 5. 👤 Thông tin cá nhân
 - **Nguyễn Tuấn Anh – CNTT 16-04  
 - 📧 Email: tuananh12cpt@gmail.com  
+
 
 
 
