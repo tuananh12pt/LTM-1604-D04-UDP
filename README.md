@@ -45,7 +45,7 @@ Công nghệ sử dụng:
 ### Client (gửi file) 📤
 <div align="center">
     <p align="center">
-        <img src="docs/seve1.jpg" alt="" width="500"/>
+        <img src="docs/client1.jpg" alt="" width="500"/>
 <p>Giao diện của Client chưa nhận file<p>  
 </p>
 </div>
@@ -54,17 +54,26 @@ Công nghệ sử dụng:
 ### Server (nhận file) 📥
 <div align="center">
     <p align="center">
-        <img src="docs/server1.jpg" alt="" width="500"/>
+        <img src="docs/server1.png" alt="" width="500"/>
         
 </p>
 <p>Giao diện của server chưa nhận file  <p>
+</div>
+
+### Chọn thư mục lưu trữ trên Client nhận file 📥
+<div align="center">
+    <p align="center">
+        <img src="docs/afile1.png" alt="" width="500"/>
+        
+</p>
+<p>Giao diện của Client gửi file qua cho Server  <p>
 </div>
 
 
  ### Ảnh kết quả khi chương trình nhận thành công 📥
  <div align="center">
     <p align="center">
-        <img src="docs/anh12.png" alt="" width="500"/>
+        <img src="docs/.png" alt="" width="500"/>
         
 </p>
 <p> Ảnh kết quả gửi file và lịch sử file đã được gửi <p>
@@ -97,5 +106,6 @@ Công nghệ sử dụng:
 ## 5. 👤 Thông tin cá nhân
 - **Nguyễn Tuấn Anh – CNTT 16-04  
 - 📧 Email: tuananh12cpt@gmail.com  
+
 
 
