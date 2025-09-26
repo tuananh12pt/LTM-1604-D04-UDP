@@ -88,7 +88,7 @@ Công nghệ sử dụng:
 - Bấm **Chọn thư mục lưu** để chỉ định nơi nhận file (Nếu không chọn nơi lưu trữ, thư mục sẽ được lưu tại thư mục gốc *Nơi lưu trữ Ứng dụng*)  
 - Nhấn bắt đầu
 - Tiếp đó ta nhấn kết nối( góc trái dưới màn hình nó hiện đã kết nối & ổ lưu trữ nhận
-  --> Khi bên Client gửi file thì bên Server nhận sẽ hiển thị: Tên file - kích thước - người gửi - thời gian - vị trí lưu
+- Khi bên Client gửi file thì bên Server nhận sẽ hiển thị: Tên file - kích thước - người gửi - thời gian - vị trí lưu
 
 
 ### 2️⃣ Chạy Client
@@ -96,7 +96,7 @@ Công nghệ sử dụng:
 - Server IP: 127.0.0.1
 - Nhập Port (mặc định: 8888)
 - Đầu tiên chúng ta chọn file sau khi chọn file mong muốn gửi sang nơi nhận ta bấm gửi
-- -> Khi ta bấm gửi file thì ở dưới hiện Tên file - kích thước file - Thời gian - trạng thái 
+- Khi ta bấm gửi file thì ở dưới hiện Tên file - kích thước file - Thời gian - trạng thái 
 
 ---
 
@@ -110,6 +110,7 @@ Công nghệ sử dụng:
 ## 5. 👤 Thông tin cá nhân
 - **Nguyễn Tuấn Anh – CNTT 16-04  
 - 📧 Email: tuananh12cpt@gmail.com  
+
 
 
 
