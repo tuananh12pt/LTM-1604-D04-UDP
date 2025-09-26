@@ -73,7 +73,7 @@ Công nghệ sử dụng:
  ### Ảnh kết quả khi chương trình nhận thành công 📥
  <div align="center">
     <p align="center">
-        <img src="docs/.png" alt="" width="500"/>
+        <img src="docs/kqua1.png" alt="" width="500"/>
         
 </p>
 <p> Ảnh kết quả gửi file và lịch sử file đã được gửi <p>
@@ -106,6 +106,7 @@ Công nghệ sử dụng:
 ## 5. 👤 Thông tin cá nhân
 - **Nguyễn Tuấn Anh – CNTT 16-04  
 - 📧 Email: tuananh12cpt@gmail.com  
+
 
 
 
