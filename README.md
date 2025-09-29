@@ -45,7 +45,7 @@ Công nghệ sử dụng:
 ### Client (gửi file) 📤
 <div align="center">
     <p align="center">
-        <img src="docs/seve1.jpg" alt="" width="500"/>
+        <img src="docs/client1.jpg" alt="" width="500"/>
 <p>Giao diện của Client chưa nhận file<p>  
 </p>
 </div>
@@ -54,17 +54,26 @@ Công nghệ sử dụng:
 ### Server (nhận file) 📥
 <div align="center">
     <p align="center">
-        <img src="docs/server1.jpg" alt="" width="500"/>
+        <img src="docs/server1.png" alt="" width="500"/>
         
 </p>
 <p>Giao diện của server chưa nhận file  <p>
+</div>
+
+### Chọn thư mục lưu trữ trên Client nhận file 📥
+<div align="center">
+    <p align="center">
+        <img src="docs/afile1.png" alt="" width="500"/>
+        
+</p>
+<p>Giao diện của Client gửi file qua cho Server  <p>
 </div>
 
 
  ### Ảnh kết quả khi chương trình nhận thành công 📥
  <div align="center">
     <p align="center">
-        <img src="docs/anh12.png" alt="" width="500"/>
+        <img src="docs/kqua1.png" alt="" width="500"/>
         
 </p>
 <p> Ảnh kết quả gửi file và lịch sử file đã được gửi <p>
@@ -78,12 +87,16 @@ Công nghệ sử dụng:
   
 - Bấm **Chọn thư mục lưu** để chỉ định nơi nhận file (Nếu không chọn nơi lưu trữ, thư mục sẽ được lưu tại thư mục gốc *Nơi lưu trữ Ứng dụng*)  
 - Nhấn bắt đầu
+- Tiếp đó ta nhấn kết nối( góc trái dưới màn hình nó hiện đã kết nối & ổ lưu trữ nhận
+- Khi bên Client gửi file thì bên Server nhận sẽ hiển thị: Tên file - kích thước - người gửi - thời gian - vị trí lưu
+
 
 ### 2️⃣ Chạy Client
 - Mở `UDPClient.java`  
-
-- Chọn file cần gửi và nhấn **Gửi**
+- Server IP: 127.0.0.1
 - Nhập Port (mặc định: 8888)
+- Đầu tiên chúng ta chọn file sau khi chọn file mong muốn gửi sang nơi nhận ta bấm gửi
+- Khi ta bấm gửi file thì ở dưới hiện Tên file - kích thước file - Thời gian - trạng thái 
 
 ---
 
@@ -97,5 +110,12 @@ Công nghệ sử dụng:
 ## 5. 👤 Thông tin cá nhân
 - **Nguyễn Tuấn Anh – CNTT 16-04  
 - 📧 Email: tuananh12cpt@gmail.com  
+
+
+
+
+
+
+
 
 
