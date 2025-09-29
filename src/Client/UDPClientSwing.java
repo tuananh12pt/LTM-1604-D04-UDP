@@ -1,4 +1,5 @@
 package Client;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -7,105 +8,148 @@ import java.io.FileInputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class UDPClientSwing extends JFrame {
-    private JTextField txtIP, txtPort;
-    private JButton btnChooseFile;
-    private JTable tblFiles;
-    private DefaultTableModel model;
-    private JProgressBar progressBar;
+    private JTextField txtServerIP, txtPort;
+    private JButton btnChooseFile, btnSend;
+    private JTable tblHistory;
+    private DefaultTableModel modelHistory;
+    private JLabel lblStatus, lblFile;
+    private File selectedFile;
 
     public UDPClientSwing() {
         setTitle("📤 UDP File Client");
-        setSize(650, 400);
+        setSize(800, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
 
-        // ===== Panel cấu hình =====
+        // ========== TOP PANEL ==========
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        topPanel.setBorder(BorderFactory.createTitledBorder("Cấu hình Client"));
-        topPanel.add(new JLabel("Server IP:"));
-        txtIP = new JTextField("localhost", 10);
-        topPanel.add(txtIP);
+        topPanel.setBackground(new Color(52, 152, 219));
 
-        topPanel.add(new JLabel("Port:"));
-        txtPort = new JTextField("8888", 5);
+        JLabel lblIP = new JLabel("Server IP:");
+        lblIP.setForeground(Color.WHITE);
+        lblIP.setFont(new Font("Arial", Font.BOLD, 14));
+
+        this.txtServerIP = new JTextField("127.0.0.1", 10);
+
+        JLabel lblPort = new JLabel("Cổng:");
+        lblPort.setForeground(Color.WHITE);
+        lblPort.setFont(new Font("Arial", Font.BOLD, 14));
+
+        this.txtPort = new JTextField("8888", 6);
+
+        this.btnChooseFile = new JButton("Chọn file");
+        btnChooseFile.setBackground(new Color(241, 196, 15));
+
+        this.btnSend = new JButton("Gửi file");
+        btnSend.setBackground(new Color(46, 204, 113));
+        btnSend.setForeground(Color.WHITE);
+
+        topPanel.add(lblIP);
+        topPanel.add(txtServerIP);
+        topPanel.add(lblPort);
         topPanel.add(txtPort);
-
-        btnChooseFile = new JButton("📂 Chọn file và gửi");
         topPanel.add(btnChooseFile);
+        topPanel.add(btnSend);
 
-        // ===== Bảng hiển thị file gửi =====
-        model = new DefaultTableModel(new String[]{"Tên file", "Dung lượng", "Người nhận"}, 0);
-        tblFiles = new JTable(model);
-        JScrollPane scroll = new JScrollPane(tblFiles);
-        scroll.setBorder(BorderFactory.createTitledBorder("Danh sách file đã gửi"));
-
-        // ===== Thanh tiến trình =====
-        progressBar = new JProgressBar(0, 100);
-        progressBar.setStringPainted(true);
-        progressBar.setPreferredSize(new Dimension(600, 30));
-        progressBar.setForeground(new Color(52, 152, 219));
-        JPanel progressPanel = new JPanel();
-        progressPanel.setBorder(BorderFactory.createTitledBorder("Tiến trình gửi file"));
-        progressPanel.add(progressBar);
-
-        // ===== Thêm vào frame =====
         add(topPanel, BorderLayout.NORTH);
-        add(scroll, BorderLayout.CENTER);
-        add(progressPanel, BorderLayout.SOUTH);
 
-        // ===== Sự kiện =====
-        btnChooseFile.addActionListener(e -> chooseAndSendFile());
+        // ========== TABLE LỊCH SỬ ==========
+        String[] cols = {"Tên file", "Kích thước (bytes)", "Thời gian", "Trạng thái"};
+        this.modelHistory = new DefaultTableModel(cols, 0);
+        this.tblHistory = new JTable(modelHistory);
+        tblHistory.setRowHeight(25);
+        tblHistory.getTableHeader().setBackground(new Color(44, 62, 80));
+        tblHistory.getTableHeader().setForeground(Color.WHITE);
+        tblHistory.getTableHeader().setFont(new Font("Arial", Font.BOLD, 14));
+
+        JScrollPane scroll = new JScrollPane(tblHistory);
+        add(scroll, BorderLayout.CENTER);
+
+        // ========== STATUS PANEL ==========
+        JPanel statusPanel = new JPanel(new GridLayout(2, 1));
+        this.lblStatus = new JLabel(" 🟡 Chưa gửi file nào", SwingConstants.LEFT);
+        lblStatus.setFont(new Font("Arial", Font.BOLD, 14));
+        lblStatus.setForeground(Color.ORANGE);
+
+        this.lblFile = new JLabel(" 📂 File đã chọn: (Chưa có)", SwingConstants.LEFT);
+        lblFile.setFont(new Font("Arial", Font.ITALIC, 13));
+
+        statusPanel.add(lblStatus);
+        statusPanel.add(lblFile);
+        add(statusPanel, BorderLayout.SOUTH);
+
+        // ========== ACTIONS ==========
+        btnChooseFile.addActionListener(e -> chooseFile());
+        btnSend.addActionListener(e -> new Thread(this::sendFile).start());
     }
 
-    // Hàm chọn và gửi file
-    private void chooseAndSendFile() {
+    private void chooseFile() {
         JFileChooser chooser = new JFileChooser();
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            File file = chooser.getSelectedFile();
-            String fileName = file.getName();
-            long fileSize = file.length();
-            String serverIP = txtIP.getText();
-            int port = Integer.parseInt(txtPort.getText());
-
-            model.addRow(new Object[]{fileName, fileSize + " bytes", serverIP});
-            new Thread(() -> sendFile(file, fileName, fileSize, serverIP, port)).start();
+        int result = chooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            selectedFile = chooser.getSelectedFile();
+            lblFile.setText(" 📂 File đã chọn: " + selectedFile.getAbsolutePath());
         }
     }
 
-    // Hàm gửi file qua UDP
-    private void sendFile(File file, String fileName, long fileSize, String ip, int port) {
-        try (DatagramSocket socket = new DatagramSocket();
-             FileInputStream fis = new FileInputStream(file)) {
+    private void sendFile() {
+        if (selectedFile == null) {
+            JOptionPane.showMessageDialog(this, "⚠️ Bạn chưa chọn file!");
+            return;
+        }
+        try {
+            String serverIP = txtServerIP.getText().trim();
+            int port = Integer.parseInt(txtPort.getText().trim());
+            DatagramSocket socket = new DatagramSocket();
+            InetAddress address = InetAddress.getByName(serverIP);
 
-            InetAddress address = InetAddress.getByName(ip);
+            // Gửi metadata
+            String meta = "META::" + selectedFile.getName() + "::" + selectedFile.length();
+            byte[] metaData = meta.getBytes();
+            socket.send(new DatagramPacket(metaData, metaData.length, address, port));
 
-            // Gửi tên file
-            byte[] data = fileName.getBytes();
-            socket.send(new DatagramPacket(data, data.length, address, port));
-
-            // Gửi kích thước file
-            data = String.valueOf(fileSize).getBytes();
-            socket.send(new DatagramPacket(data, data.length, address, port));
-
-            // Gửi dữ liệu file
-            byte[] buffer = new byte[4096];
-            int bytesRead;
-            long sent = 0;
-            while ((bytesRead = fis.read(buffer)) != -1) {
-                socket.send(new DatagramPacket(buffer, bytesRead, address, port));
-                sent += bytesRead;
-
-                int percent = (int) ((sent * 100) / fileSize);
-                progressBar.setValue(percent);
+            // Gửi dữ liệu file theo từng gói
+            try (FileInputStream fis = new FileInputStream(selectedFile)) {
+                byte[] buffer = new byte[4096];
+                int bytesRead;
+                while ((bytesRead = fis.read(buffer)) != -1) {
+                    DatagramPacket packet = new DatagramPacket(buffer, bytesRead, address, port);
+                    socket.send(packet);
+                }
             }
 
-            JOptionPane.showMessageDialog(this, "✅ Đã gửi xong file: " + fileName);
-            progressBar.setValue(0);
+            // Gửi thông điệp kết thúc
+            String endMsg = "END";
+            byte[] endBytes = endMsg.getBytes();
+            DatagramPacket endPacket = new DatagramPacket(endBytes, endBytes.length, address, port);
+            socket.send(endPacket);
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Lỗi: " + e.getMessage());
+            socket.close();
+
+            // Cập nhật lịch sử
+            String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+            SwingUtilities.invokeLater(() -> {
+                modelHistory.addRow(new Object[]{
+                        selectedFile.getName(),
+                        selectedFile.length(),
+                        time,
+                        "✅ Đã gửi"
+                });
+                lblStatus.setText(" 🟢 File đã được gửi tới server " + serverIP + ":" + port);
+                lblStatus.setForeground(new Color(0, 200, 0));
+            });
+
+        } catch (Exception ex) {
+            SwingUtilities.invokeLater(() -> {
+                JOptionPane.showMessageDialog(this, "❌ Lỗi gửi file: " + ex.getMessage());
+                lblStatus.setText(" 🔴 Lỗi gửi file");
+                lblStatus.setForeground(Color.RED);
+            });
         }
     }
 
